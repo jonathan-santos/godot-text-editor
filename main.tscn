@@ -40,7 +40,7 @@ margin_top = -0.420448
 margin_right = 99.0
 margin_bottom = 43.5796
 text = "File"
-items = [ "Open File", null, 0, false, false, 0, 0, null, "", false, "Save as", null, 0, false, false, 1, 0, null, "", false, "Quit", null, 0, false, false, 2, 0, null, "", false ]
+items = [ "New file", null, 0, false, false, 0, 0, null, "", false, "Open File", null, 0, false, false, 1, 0, null, "", false, "Save", null, 0, false, false, 2, 0, null, "", false, "Save as", null, 0, false, false, 3, 0, null, "", false, "Quit", null, 0, false, false, 4, 0, null, "", false ]
 switch_on_hover = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -52,7 +52,7 @@ margin_top = 0.286659
 margin_right = 214.966
 margin_bottom = 44.2867
 text = "Help"
-items = [ "About", null, 0, false, false, 0, 0, null, "", false ]
+items = [ "About", null, 0, false, false, 0, 0, null, "", false, "Jhow website", null, 0, false, false, 1, 0, null, "", false ]
 switch_on_hover = true
 __meta__ = {
 "_edit_use_anchors_": false
