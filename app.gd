@@ -1,7 +1,8 @@
 extends Control
 
 var app_name = "Text Editor"
-var current_file = "Untitled"
+const UNTITLED = "Untitled"
+var current_file = UNTITLED
 
 onready var file_menu_popup = $FileMenu.get_popup()
 onready var help_menu_popup = $HelpMenu.get_popup()
@@ -16,7 +17,7 @@ func update_window_title():
 	OS.set_window_title(app_name + " - " + current_file)
 	
 func save_current_file():
-	if current_file == "Untitled":
+	if current_file == UNTITLED:
 		$SaveAsFileDialog.popup()
 		return
 	
@@ -26,24 +27,26 @@ func save_current_file():
 	f.close()
 	
 func _on_FileMenu_id_pressed(id):
-	if id == 0:
-		current_file = "Untitled"
-		update_window_title()
-		$TextEdit.text = ""
-	elif id == 1:
-		$OpenFileDialog.popup()
-	elif id == 2:
-		save_current_file()
-	elif id == 3:
-		$SaveAsFileDialog.popup()
-	elif id == 4:
-		get_tree().quit()
+	match id:
+		0:
+			current_file = UNTITLED
+			update_window_title()
+			$TextEdit.text = ""
+		1:
+			$OpenFileDialog.popup()
+		2:
+			save_current_file()
+		3:
+			$SaveAsFileDialog.popup()
+		4:
+			get_tree().quit()
 		
 func _on_HelpMenu_id_pressed(id):
-	if id == 0:
-		$AboutWindow.popup()
-	elif id == 1:
-		OS.shell_open("https://jhow.io")
+	match id:
+		0:
+			$AboutWindow.popup()
+		1:
+			OS.shell_open("https://jhow.io")
 
 func _on_OpenFileDialog_file_selected(path):
 	current_file = path
