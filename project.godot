@@ -16,8 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Text Editor"
-run/main_scene="res://main.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://scenes/main.tscn"
 
 [display]
 
@@ -32,4 +31,3 @@ window/stretch/aspect="expand"
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-environment/default_environment="res://default_env.tres"
