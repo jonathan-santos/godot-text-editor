@@ -1,32 +1,70 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/app.gd" type="Script" id=1]
+[ext_resource path="res://theme/default_theme.tres" type="Theme" id=2]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.12549, 0.145098, 0.192157, 1 )
+color = Color( 0.2, 0.231373, 0.309804, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="Content" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 40.0
-margin_right = -10.0
-margin_bottom = -10.0
-custom_colors/font_color = Color( 0.556863, 0.564706, 0.584314, 1 )
-custom_colors/background_color = Color( 0.2, 0.231373, 0.309804, 1 )
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuItems" type="HBoxContainer" parent="Content"]
+margin_right = 1280.0
+margin_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 0, 35 )
+custom_constants/separation = 0
+
+[node name="File" type="MenuButton" parent="Content/MenuItems"]
+margin_right = 60.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 60, 0 )
+theme = ExtResource( 2 )
+text = "File"
+items = [ "New file", null, 0, false, false, 0, 0, null, "", false, "Open File", null, 0, false, false, 1, 0, null, "", false, "Save", null, 0, false, false, 2, 0, null, "", false, "Save as", null, 0, false, false, 3, 0, null, "", false, "Quit", null, 0, false, false, 4, 0, null, "", false ]
+switch_on_hover = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Help" type="MenuButton" parent="Content/MenuItems"]
+margin_left = 60.0
+margin_right = 120.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 60, 0 )
+text = "Help"
+items = [ "About", null, 0, false, false, 0, 0, null, "", false, "Jhow website", null, 0, false, false, 1, 0, null, "", false ]
+switch_on_hover = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="Content"]
+margin_top = 35.0
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_vertical = 3
 highlight_current_line = true
 syntax_highlighting = true
 show_line_numbers = true
@@ -55,29 +93,6 @@ window_title = "Save as file"
 access = 2
 current_dir = "/Users/jonathan/drive/jhow/gamedev/godot/Text Editor"
 current_path = "/Users/jonathan/drive/jhow/gamedev/godot/Text Editor/"
-
-[node name="FileMenu" type="MenuButton" parent="."]
-margin_left = 0.707108
-margin_top = -0.44545
-margin_right = 100.707
-margin_bottom = 39.5546
-text = "File"
-items = [ "New file", null, 0, false, false, 0, 0, null, "", false, "Open File", null, 0, false, false, 1, 0, null, "", false, "Save", null, 0, false, false, 2, 0, null, "", false, "Save as", null, 0, false, false, 3, 0, null, "", false, "Quit", null, 0, false, false, 4, 0, null, "", false ]
-switch_on_hover = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HelpMenu" type="MenuButton" parent="."]
-margin_left = 100.0
-margin_right = 200.0
-margin_bottom = 40.0
-text = "Help"
-items = [ "About", null, 0, false, false, 0, 0, null, "", false, "Jhow website", null, 0, false, false, 1, 0, null, "", false ]
-switch_on_hover = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AboutWindow" type="WindowDialog" parent="."]
 anchor_left = 0.5

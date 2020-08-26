@@ -4,8 +4,9 @@ var app_name = "Text Editor"
 const UNTITLED = "Untitled"
 var current_file = UNTITLED
 
-onready var file_menu_popup = $FileMenu.get_popup()
-onready var help_menu_popup = $HelpMenu.get_popup()
+onready var file_menu_popup = $Content/MenuItems/File.get_popup()
+onready var help_menu_popup = $Content/MenuItems/Help.get_popup()
+onready var textedit = $Content/TextEdit
 
 func _ready():
 	file_menu_popup.connect("id_pressed", self, "_on_FileMenu_id_pressed")
@@ -23,7 +24,7 @@ func save_current_file():
 	
 	var f = File.new()
 	f.open(current_file, 2)
-	f.store_string($TextEdit.text)
+	f.store_string(textedit.text)
 	f.close()
 	
 func _on_FileMenu_id_pressed(id):
@@ -31,7 +32,7 @@ func _on_FileMenu_id_pressed(id):
 		0:
 			current_file = UNTITLED
 			update_window_title()
-			$TextEdit.text = ""
+			textedit.text = ""
 		1:
 			$OpenFileDialog.popup()
 		2:
@@ -53,7 +54,7 @@ func _on_OpenFileDialog_file_selected(path):
 	update_window_title()
 	var f = File.new()
 	f.open(path, 1)
-	$TextEdit.text = f.get_as_text()
+	textedit.text = f.get_as_text()
 	f.close()
 
 func _on_SaveAsFileDialog_file_selected(path):
@@ -61,5 +62,5 @@ func _on_SaveAsFileDialog_file_selected(path):
 	update_window_title()
 	var f = File.new()
 	f.open(path, 2)
-	f.store_string($TextEdit.text)
+	f.store_string(textedit.text)
 	f.close()
